@@ -32,12 +32,17 @@ drawCanvas(defaultSize);
 document.querySelector('#reset').addEventListener('click', () =>{
   let pixels = document.querySelectorAll('.pixel');
   Array.from(pixels).forEach(pixel => pixel.style.backgroundColor = 'white');
-  });
+});
 
-document.querySelector('#reset').addEventListener('click', () => {
+document.querySelector('#new-canvas').addEventListener('click', () => {
   //remove the current canvas
   let pixels = document.querySelectorAll('.pixel');
   Array.from(pixels).forEach(pixel => pixel.remove());
-  //draw a new canvas
-  drawCanvas(prompt('New size of the canvas?'));
+  //draw a new canvas with max size < 100x100
+  do
+  {
+    newSize = prompt('Please enter new length of the canvas (max 100)');
+  }
+  while(isNaN(newSize) === true || newSize < 0 || newSize > 100)
+  drawCanvas(newSize);
 });

@@ -9,6 +9,8 @@ function drawCanvas(canvasSize) {
   {
     let newDiv = document.createElement('div');
     newDiv.classList.add('pixel');
+    newDiv.style.height = `calc(70vh / ${canvasSize})`;
+    newDiv.style.width = `calc(70vh / ${canvasSize})`;
     canvas.appendChild(newDiv);
   }
   canvas.style.gridTemplate = `repeat(${canvasSize}, 1fr) / repeat(${canvasSize}, 1fr)`;
